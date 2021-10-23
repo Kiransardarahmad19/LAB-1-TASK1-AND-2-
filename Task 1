@@ -1,3 +1,4 @@
+#task 1 
 from collections import deque
 inputstring = input(" Please enter any string: ")
 firststack = deque()
@@ -13,3 +14,37 @@ if inputstring.upper() == reverse_inputstring:
     print("The entered string", inputstring,"is a palindrome")
 else:
     print( "The entered string is not a palindrome")
+
+
+
+
+
+#task 2 
+
+from collections import deque
+Inputequation = input("Please input the equation= ")
+stack = deque()
+output = "The input equation" , Inputequation , " is balanced!"
+tempvar = 0
+for abc in Inputequation:
+    if (abc == '{' or abc == '(' or abc == '['):
+        stack.append(abc)
+        tempvar = tempvar + 1
+    elif (abc == '}' or abc == ')' or abc == '['):
+        if (len(stack) != 0):
+            if (abc == ')'):
+                if(stack[-1] == '('):
+                    tempvar = tempvar - 1
+            if (abc == ']'):
+                if (stack[-1] == '['):
+                    tempvar = tempvar - 1
+            if (abc == '}'):
+                if (stack[-1] == '{'):
+                    tempvar = tempvar - 1
+            stack.pop()
+        else:
+            output = "The given equation ", Inputequation , " is unbalanced!"
+            break
+if (tempvar != 0):
+    output = "The given equation", Inputequation, " is unbalanced! "
+print (output) 
